@@ -1,21 +1,18 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-import openai
-import os
 
-# Init FastAPI
 app = FastAPI()
-origins = ["https://aiaffiliatecommission.com"]  # Frontend domain
 
-# Allow all CORS (for frontend)
+origins = ["https://aiaffiliatecommission.com"]  # YOUR WordPress domain
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins= origins,
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Set your OpenAI key (we'll use Render's env vars later)
 openai.api_key = os.getenv("OPENAI_API_KEY")
