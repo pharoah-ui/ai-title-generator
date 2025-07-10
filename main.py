@@ -6,6 +6,7 @@ import os
 
 # Init FastAPI
 app = FastAPI()
+origins = ["https://aiaffiliatecommission.com"]  # Frontend domain
 
 # Allow all CORS (for frontend)
 app.add_middleware(
